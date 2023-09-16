@@ -36,7 +36,7 @@
     },
     {
       "description": "Auto-merge any patch or minor updates to Node images",
-      "matchPackageNames": ["node"],
+      "matchPackageNames": ["node", "cimg/node"],
       "matchUpdateTypes": ["patch", "minor"],
       "addLabels": ["automerge"],
       "automerge": true
