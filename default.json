@@ -1,0 +1,45 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:recommended"
+  ],
+
+  "minimumReleaseAge": "2 days",
+  "prConcurrentLimit": 10,
+
+  "labels": ["🤖 renovate"],
+  "dependencyDashboardLabels": ["🤖 renovate"],
+
+  "automergeStrategy": "merge-commit",
+  "pruneStaleBranches": true,
+  "pruneBranchAfterAutomerge": true,
+
+  "osvVulnerabilityAlerts": true,
+
+  "docker": {
+    "pinDigests": true
+  },
+
+  "packageRules": [
+    {
+      "description": "Auto-merge any patch or minor updates to dev dependencies",
+      "matchDepTypes": ["devDependencies"],
+      "matchUpdateTypes": ["patch", "minor"],
+      "addLabels": ["automerge"],
+      "automerge": true
+    },
+    {
+      "description": "Auto-merge any digest updates",
+      "matchUpdateTypes": ["digest"],
+      "addLabels": ["automerge"],
+      "automerge": true
+    },
+    {
+      "description": "Auto-merge any patch or minor updates to Node images",
+      "matchPackageNames": ["node"],
+      "matchUpdateTypes": ["patch", "minor"],
+      "addLabels": ["automerge"],
+      "automerge": true
+    }
+  ]
+}
