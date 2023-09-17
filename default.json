@@ -14,8 +14,6 @@
   "pruneStaleBranches": true,
   "pruneBranchAfterAutomerge": true,
 
-  "osvVulnerabilityAlerts": true,
-
   "docker": {
     "pinDigests": true
   },
