@@ -5,6 +5,8 @@
     ":semanticCommitTypeAll(chore)"
   ],
 
+  "gitAuthor": "Renovate Bot <renovate@markormesher.co.uk>",
+
   "minimumReleaseAge": "2 days",
   "prConcurrentLimit": 10,
 
