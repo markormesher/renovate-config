@@ -1,18 +1,30 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "config:recommended"
+    "config:recommended",
+    ":semanticCommitTypeAll(chore)"
   ],
 
   "minimumReleaseAge": "2 days",
   "prConcurrentLimit": 10,
 
+  "semanticCommits": "enabled",
   "labels": ["🤖 renovate"],
   "dependencyDashboardLabels": ["🤖 renovate"],
 
-  "automergeStrategy": "merge-commit",
+  "automergeStrategy": "squash",
   "pruneStaleBranches": true,
   "pruneBranchAfterAutomerge": true,
+  "recreateWhen": "always",
+
+  "osvVulnerabilityAlerts": true,
+  "postUpdateOptions": ["yarnDedupeHighest", "gomodTidy"],
+
+  "kubernetes": {
+    "fileMatch": [
+      ".*\.ya?ml$"
+    ]
+  },
 
   "docker": {
     "pinDigests": true
@@ -38,6 +50,25 @@
       "matchUpdateTypes": ["patch", "minor"],
       "addLabels": ["automerge"],
       "automerge": true
+    },
+    {
+      "description": "Auto-merge any patch or minor updates to build tooling",
+      "matchPackagePrefixes": ["gcr.io/kaniko-project/executor"],
+      "matchUpdateTypes": ["patch", "minor"],
+      "addLabels": ["automerge"],
+      "automerge": true
+    },
+    {
+      "description": "Auto-merge any patch or minor updates to build tooling",
+      "matchDepTypes": ["packageManager"],
+      "matchUpdateTypes": ["patch", "minor"],
+      "addLabels": ["automerge"],
+      "automerge": true
+    },
+    {
+      "description": "Upgrade the Go langauge version and images at the same time",
+      "matchPackageNames": ["go", "golang", "docker.io/golang"],
+      "groupName": "Go language and base images"
     }
   ]
 }
