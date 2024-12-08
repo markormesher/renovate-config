@@ -69,7 +69,7 @@
     },
     {
       "description": "Upgrade the Go langauge version and images at the same time",
-      "matchPackageNames": ["go", "golang", "docker.io/golang"],
+      "matchPackageNames": ["go", "golang", "docker.io/golang", "cimg/go"],
       "groupName": "Go language and base images"
     }
   ]
