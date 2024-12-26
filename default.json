@@ -47,8 +47,15 @@
       "automerge": true
     },
     {
-      "description": "Auto-merge any patch or minor updates to Node images",
+      "description": "Auto-merge any patch or minor updates to Node",
       "matchPackageNames": ["node", "cimg/node"],
+      "matchUpdateTypes": ["patch", "minor"],
+      "addLabels": ["automerge"],
+      "automerge": true
+    },
+    {
+      "description": "Auto-merge any patch or minor updates to Go",
+      "matchPackageNames": ["go", "golang", "docker.io/golang", "cimg/go"],
       "matchUpdateTypes": ["patch", "minor"],
       "addLabels": ["automerge"],
       "automerge": true
@@ -61,6 +68,7 @@
         "quay.io/podman/stable"
       ],
       "matchUpdateTypes": ["patch", "minor"],
+      "semanticCommitType": "build",
       "addLabels": ["automerge"],
       "automerge": true
     },
@@ -68,6 +76,7 @@
       "description": "Auto-merge any patch or minor updates to build tooling",
       "matchDepTypes": ["packageManager"],
       "matchUpdateTypes": ["patch", "minor"],
+      "semanticCommitType": "build",
       "addLabels": ["automerge"],
       "automerge": true
     },
