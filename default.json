@@ -63,6 +63,8 @@
     {
       "description": "Auto-merge any patch or minor updates to build tooling",
       "matchPackagePrefixes": [
+        "cimg/base",
+        "docker.io/busybox",
         "gcr.io/kaniko-project/executor",
         "ghcr.io/markormesher/task-fetcher",
         "quay.io/podman/stable"
