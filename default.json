@@ -48,16 +48,27 @@
     },
     {
       "description": "Auto-merge any patch or minor updates to Node",
-      "matchPackageNames": ["node", "cimg/node"],
+      "matchPackageNames": [
+        "node",
+        "docker.io/node",
+        "cimg/node"
+      ],
       "matchUpdateTypes": ["patch", "minor"],
       "addLabels": ["automerge"],
+      "groupName": "Node language and base images",
       "automerge": true
     },
     {
       "description": "Auto-merge any patch or minor updates to Go",
-      "matchPackageNames": ["go", "golang", "docker.io/golang", "cimg/go"],
+      "matchPackageNames": [
+        "go",
+        "golang",
+        "docker.io/golang",
+        "cimg/go"
+      ],
       "matchUpdateTypes": ["patch", "minor"],
       "addLabels": ["automerge"],
+      "groupName": "Go language and base images",
       "automerge": true
     },
     {
@@ -81,11 +92,6 @@
       "semanticCommitType": "build",
       "addLabels": ["automerge"],
       "automerge": true
-    },
-    {
-      "description": "Upgrade the Go langauge version and images at the same time",
-      "matchPackageNames": ["go", "golang", "docker.io/golang", "cimg/go"],
-      "groupName": "Go language and base images"
     }
   ]
 }
