@@ -72,6 +72,15 @@
       "automerge": true
     },
     {
+      "description": "Auto-merge any patch or minor updates to Golang.org packages",
+      "matchPackagePrefixes": [
+        "golang.org/x"
+      ],
+      "matchUpdateTypes": ["patch", "minor"],
+      "addLabels": ["automerge"],
+      "automerge": true
+    },
+    {
       "description": "Auto-merge any patch or minor updates to build tooling",
       "matchPackagePrefixes": [
         "cimg/base",
