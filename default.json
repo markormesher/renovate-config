@@ -12,7 +12,7 @@
 
   "semanticCommits": "enabled",
   "labels": ["🤖 renovate"],
-  "dependencyDashboardLabels": ["🤖 renovate"],
+  "dependencyDashboard": false,
 
   "automergeStrategy": "squash",
   "pruneStaleBranches": true,
@@ -86,7 +86,6 @@
         "cimg/base",
         "docker.io/alpine/git",
         "docker.io/busybox",
-        "gcr.io/kaniko-project/executor",
         "ghcr.io/markormesher/task-fetcher",
         "quay.io/podman/stable"
       ],
