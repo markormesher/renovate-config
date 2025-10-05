@@ -31,17 +31,44 @@
   },
 
   "packageRules": [
+
+    // build tooling
+
     {
-      "description": "Auto-merge any patch or minor updates to dev dependencies",
-      "matchDepTypes": ["devDependencies"],
+      "description": "Auto-merge any patch or minor updates to build tooling",
+      "matchPackagePrefixes": [
+        "cimg/base",
+        "docker.io/alpine/git",
+        "docker.io/busybox",
+        "ghcr.io/markormesher/task-fetcher",
+        "quay.io/podman/stable"
+      ],
+      "matchUpdateTypes": ["patch", "minor"],
+      "semanticCommitType": "build",
+      "addLabels": ["automerge"]
+    },
+    {
+      "description": "Auto-merge any patch or minor updates to package managers",
+      "matchDepTypes": ["packageManager"],
+      "matchUpdateTypes": ["patch", "minor"],
+      "semanticCommitType": "build",
+      "addLabels": ["automerge"]
+    },
+
+    // base layers
+
+    {
+      "description": "Auto-merge any patch or minor updates to common base images",
+      "matchPackageNames": [
+        "docker.io/debian",
+        "ghcr.io/markormesher/scratch"
+      ],
       "matchUpdateTypes": ["patch", "minor"],
       "addLabels": ["automerge"]
     },
-    {
-      "description": "Auto-merge any digest updates",
-      "matchUpdateTypes": ["digest"],
-      "addLabels": ["automerge"]
-    },
+
+    // langauges
+
     {
       "description": "Auto-merge any patch or minor updates to Node",
       "groupName": "Node language and base images",
@@ -65,12 +92,12 @@
       "matchUpdateTypes": ["patch", "minor"],
       "addLabels": ["automerge"]
     },
+
+    // actual package dependencies
+
     {
-      "description": "Auto-merge any patch or minor updates to common base images",
-      "matchPackageNames": [
-        "docker.io/debian",
-        "ghcr.io/markormesher/scratch"
-      ],
+      "description": "Auto-merge any patch or minor updates to dev dependencies",
+      "matchDepTypes": ["devDependencies"],
       "matchUpdateTypes": ["patch", "minor"],
       "addLabels": ["automerge"]
     },
@@ -83,24 +110,22 @@
       "addLabels": ["automerge"]
     },
     {
-      "description": "Auto-merge any patch or minor updates to build tooling",
+      "description": "Auto-merge any patch updates to well-versioned packages",
       "matchPackagePrefixes": [
-        "cimg/base",
-        "docker.io/alpine/git",
-        "docker.io/busybox",
-        "ghcr.io/markormesher/task-fetcher",
-        "quay.io/podman/stable"
+        "google.golang.org/protobuf",
+        "docker.io/bufbuild/buf",
+        "connectrpc.com/connect"
       ],
-      "matchUpdateTypes": ["patch", "minor"],
-      "semanticCommitType": "build",
+      "matchUpdateTypes": ["patch"],
       "addLabels": ["automerge"]
     },
+
+    // misc
+
     {
-      "description": "Auto-merge any patch or minor updates to build tooling",
-      "matchDepTypes": ["packageManager"],
-      "matchUpdateTypes": ["patch", "minor"],
-      "semanticCommitType": "build",
+      "description": "Auto-merge any digest updates",
+      "matchUpdateTypes": ["digest"],
       "addLabels": ["automerge"]
-    }
+    },
   ]
 }
