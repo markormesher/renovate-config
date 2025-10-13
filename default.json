@@ -41,6 +41,7 @@
       "matchPackagePrefixes": [
         "cimg/base",
         "docker.io/alpine/git",
+        "docker.io/bufbuild/buf",
         "docker.io/busybox",
         "ghcr.io/markormesher/task-fetcher",
         "quay.io/podman/stable"
@@ -115,7 +116,6 @@
       "description": "Auto-merge any patch updates to well-versioned packages",
       "matchPackagePrefixes": [
         "google.golang.org/protobuf",
-        "docker.io/bufbuild/buf",
         "connectrpc.com/connect"
       ],
       "matchUpdateTypes": ["patch"],
