@@ -7,20 +7,23 @@
     ":semanticCommitTypeAll(chore)"
   ],
 
+  // commit appearance
   "gitAuthor": "Renovate Bot <renovate@markormesher.co.uk>",
-
-  "minimumReleaseAge": "2 days",
-  "prConcurrentLimit": 10,
-
   "semanticCommits": "enabled",
   "labels": ["🤖 renovate"],
-  "dependencyDashboard": false,
 
-  "pruneStaleBranches": true,
+  // renovate behaviour
   "recreateWhen": "always",
-
+  "pruneStaleBranches": true,
   "osvVulnerabilityAlerts": true,
+  "dependencyDashboard": false,
+  "minimumReleaseAge": "2 days",
+
+  // tidy lockfiles after making changes
   "postUpdateOptions": ["yarnDedupeHighest", "gomodTidy"],
+
+  // create PRs on Friday/Saturday only
+  "schedule": "* * * * 5,6",
 
   "kubernetes": {
     "fileMatch": [
