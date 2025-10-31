@@ -18,6 +18,8 @@
   "osvVulnerabilityAlerts": true,
   "dependencyDashboard": false,
   "minimumReleaseAge": "2 days",
+  "prConcurrentLimit": 0,
+  "branchConcurrentLimit": 0,
 
   // tidy lockfiles after making changes
   "postUpdateOptions": ["yarnDedupeHighest", "gomodTidy"],
