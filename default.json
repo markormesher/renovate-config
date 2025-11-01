@@ -34,7 +34,6 @@
     ]
   },
 
-
   "packageRules": [
 
     // build tooling
@@ -42,6 +41,7 @@
     {
       "description": "Auto-merge any patch or minor updates to build tooling",
       "matchPackagePrefixes": [
+        "@markormesher/eslint-config",
         "cimg/base",
         "docker.io/alpine/git",
         "docker.io/bufbuild/buf",
