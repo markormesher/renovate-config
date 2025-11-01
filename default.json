@@ -37,6 +37,14 @@
 
   "packageRules": [
 
+    // verison pinning
+
+    {
+      "description": "Auto-merge any pin updates",
+      "matchUpdateTypes": ["pin", "pinDigest"],
+      "addLabels": ["automerge"]
+    },
+
     // build tooling
 
     {
