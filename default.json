@@ -2,22 +2,20 @@
 
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "config:best-practices",
-    ":semanticCommitTypeAll(chore)"
-  ],
+  "extends": ["config:best-practices"],
 
   // commit appearance
   "gitAuthor": "Renovate Bot <renovate@markormesher.co.uk>",
   "semanticCommits": "enabled",
+  "semanticCommitType": "chore",
   "labels": ["🤖 renovate"],
 
   // renovate behaviour
   "recreateWhen": "always",
   "pruneStaleBranches": true,
   "osvVulnerabilityAlerts": true,
-  "dependencyDashboard": false,
   "minimumReleaseAge": "2 days",
+  "pinDigests": true
 
   // no limits
   "prHourlyLimit": 0,
@@ -36,9 +34,6 @@
     ]
   },
 
-  "docker": {
-    "pinDigests": true
-  },
 
   "packageRules": [
 
