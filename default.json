@@ -8,6 +8,7 @@
   "gitAuthor": "Renovate Bot <renovate@markormesher.co.uk>",
   "semanticCommits": "enabled",
   "semanticCommitType": "chore",
+  "semanticCommitScope": "",
   "labels": ["🤖 renovate"],
 
   // renovate behaviour
@@ -46,6 +47,7 @@
         "docker.io/alpine/git",
         "docker.io/bufbuild/buf",
         "docker.io/busybox",
+        "eslint",
         "ghcr.io/markormesher/task-fetcher",
         "quay.io/podman/stable"
       ],
