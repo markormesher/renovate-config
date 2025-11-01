@@ -15,7 +15,7 @@
   "pruneStaleBranches": true,
   "osvVulnerabilityAlerts": true,
   "minimumReleaseAge": "2 days",
-  "pinDigests": true
+  "pinDigests": true,
 
   // no limits
   "prHourlyLimit": 0,
