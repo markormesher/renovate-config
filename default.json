@@ -9,7 +9,19 @@
   "semanticCommits": "enabled",
   "semanticCommitType": "chore",
   "semanticCommitScope": "",
+
+  // pr appearance
   "labels": ["🤖 renovate"],
+  "prBodyColumns": [
+    "Package",
+    "Type",
+    "Update",
+    "Change",
+    "Age",
+    "Adoption",
+    "Passing",
+    "Confidence"
+  ],
 
   // renovate behaviour
   "recreateWhen": "always",
