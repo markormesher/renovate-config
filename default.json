@@ -140,19 +140,22 @@
     {
       "description": "Auto-merge any patch updates to well-versioned packages",
       "matchPackagePrefixes": [
-        "google.golang.org/protobuf",
+        "@bufbuild/",
+        "@connectrpc/",
         "connectrpc.com/",
-        "@connectrpc/"
+        "google.golang.org/protobuf"
       ],
       "matchUpdateTypes": ["patch"],
       "addLabels": ["automerge"]
     },
     {
-      "description": "Group connectrpc packages",
+      "description": "Group protobuf packages",
       "groupName": "connectrpc",
       "matchPackagePrefixes": [
+        "@bufbuild/",
+        "@connectrpc/",
         "connectrpc.com/",
-        "@connectrpc/"
+        "google.golang.org/protobuf"
       ]
     },
 
