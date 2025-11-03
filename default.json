@@ -98,7 +98,7 @@
     // langauges
 
     {
-      "description": "Auto-merge any patch or minor updates to Node",
+      "description": "Group and auto-merge any patch or minor updates to Node",
       "groupName": "Node language and base images",
       "matchPackageNames": [
         "node",
@@ -109,7 +109,7 @@
       "addLabels": ["automerge"]
     },
     {
-      "description": "Auto-merge any patch or minor updates to Go",
+      "description": "Group and auto-merge any patch or minor updates to Go",
       "groupName": "Go language and base images",
       "matchPackageNames": [
         "go",
@@ -141,10 +141,19 @@
       "description": "Auto-merge any patch updates to well-versioned packages",
       "matchPackagePrefixes": [
         "google.golang.org/protobuf",
-        "connectrpc.com/connect"
+        "connectrpc.com/",
+        "@connectrpc/"
       ],
       "matchUpdateTypes": ["patch"],
       "addLabels": ["automerge"]
+    },
+    {
+      "description": "Group connectrpc packages",
+      "groupName": "connectrpc",
+      "matchPackagePrefixes": [
+        "connectrpc.com/",
+        "@connectrpc/"
+      ]
     },
 
     // misc
