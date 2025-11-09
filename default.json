@@ -27,7 +27,6 @@
   "recreateWhen": "always",
   "pruneStaleBranches": true,
   "osvVulnerabilityAlerts": true,
-  "minimumReleaseAge": "2 days",
   "pinDigests": true,
 
   // no limits
