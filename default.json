@@ -38,9 +38,6 @@
   // tidy lockfiles after making changes
   "postUpdateOptions": ["yarnDedupeHighest", "gomodTidy"],
 
-  // create PRs on Friday/Saturday only
-  "schedule": "* * * * 5,6",
-
   "kubernetes": {
     "fileMatch": [
       ".*\.ya?ml$"
