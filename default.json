@@ -61,7 +61,7 @@
         ".circleci/config.yml",
         ".drone.yml"
       ],
-      "matchUpdateTypes": ["patch", "minor"],
+      "matchUpdateTypes": ["digest", "patch", "minor"],
       "semanticCommitType": "ci",
       "addLabels": ["automerge"]
     },
@@ -73,14 +73,14 @@
         "docker.io/busybox",
         "eslint"
       ],
-      "matchUpdateTypes": ["patch", "minor"],
+      "matchUpdateTypes": ["digest", "patch", "minor"],
       "semanticCommitType": "build",
       "addLabels": ["automerge"]
     },
     {
       "description": "Auto-merge any patch or minor updates to package managers",
       "matchDepTypes": ["packageManager"],
-      "matchUpdateTypes": ["patch", "minor"],
+      "matchUpdateTypes": ["digest", "patch", "minor"],
       "semanticCommitType": "build",
       "addLabels": ["automerge"]
     },
@@ -93,7 +93,7 @@
         "docker.io/debian",
         "ghcr.io/markormesher/scratch"
       ],
-      "matchUpdateTypes": ["patch", "minor"],
+      "matchUpdateTypes": ["digest", "patch", "minor"],
       "addLabels": ["automerge"]
     },
 
@@ -107,7 +107,7 @@
         "docker.io/node",
         "cimg/node"
       ],
-      "matchUpdateTypes": ["patch", "minor"],
+      "matchUpdateTypes": ["digest", "patch", "minor"],
       "addLabels": ["automerge"]
     },
     {
@@ -119,7 +119,7 @@
         "docker.io/golang",
         "cimg/go"
       ],
-      "matchUpdateTypes": ["patch", "minor"],
+      "matchUpdateTypes": ["digest", "patch", "minor"],
       "addLabels": ["automerge"]
     },
 
@@ -128,7 +128,7 @@
     {
       "description": "Auto-merge any patch or minor updates to dev dependencies",
       "matchDepTypes": ["devDependencies"],
-      "matchUpdateTypes": ["patch", "minor"],
+      "matchUpdateTypes": ["digest", "patch", "minor"],
       "addLabels": ["automerge"]
     },
     {
@@ -136,7 +136,7 @@
       "matchPackagePrefixes": [
         "golang.org/x"
       ],
-      "matchUpdateTypes": ["patch", "minor"],
+      "matchUpdateTypes": ["digest", "patch", "minor"],
       "addLabels": ["automerge"]
     },
     {
@@ -147,7 +147,7 @@
         "connectrpc.com/",
         "google.golang.org/protobuf"
       ],
-      "matchUpdateTypes": ["patch"],
+      "matchUpdateTypes": ["digest", "patch"],
       "addLabels": ["automerge"]
     },
     {
