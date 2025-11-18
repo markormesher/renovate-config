@@ -56,16 +56,22 @@
     // build tooling
 
     {
+      "description": "Auto-merge any patch or minor updates to CI tooling",
+      "matchFileNames": [
+        ".circleci/config.yml",
+        ".drone.yml"
+      ],
+      "matchUpdateTypes": ["patch", "minor"],
+      "semanticCommitType": "ci",
+      "addLabels": ["automerge"]
+    },
+    {
       "description": "Auto-merge any patch or minor updates to build tooling",
       "matchPackagePrefixes": [
         "@markormesher/eslint-config",
-        "cimg/base",
-        "docker.io/alpine/git",
         "docker.io/bufbuild/buf",
         "docker.io/busybox",
-        "eslint",
-        "ghcr.io/markormesher/task-fetcher",
-        "quay.io/podman/stable"
+        "eslint"
       ],
       "matchUpdateTypes": ["patch", "minor"],
       "semanticCommitType": "build",
