@@ -48,8 +48,8 @@
     // verison pinning
 
     {
-      "description": "Auto-merge any pin updates",
-      "matchUpdateTypes": ["pin", "pinDigest"],
+      "description": "Auto-merge any pin or digest updates",
+      "matchUpdateTypes": ["pin", "pinDigest", "digest"],
       "addLabels": ["automerge"]
     },
 
@@ -60,6 +60,15 @@
       "matchFileNames": [
         ".circleci/config.yml",
         ".drone.yml"
+      ],
+      "matchPackagePrefixes": [
+        // don't include language images here
+        "cimg/base",
+        "docker.io/alpine/git",
+        "docker.io/bufbuild/buf",
+        "docker.io/busybox",
+        "ghcr.io/markormesher/task-fetcher",
+        "quay.io/podman/stable"
       ],
       "matchUpdateTypes": ["digest", "patch", "minor"],
       "semanticCommitType": "ci",
@@ -145,28 +154,21 @@
         "@bufbuild/",
         "@connectrpc/",
         "connectrpc.com/",
-        "google.golang.org/protobuf"
+        "google.golang.org/protobuf",
+        "material-symbols"
       ],
       "matchUpdateTypes": ["digest", "patch"],
       "addLabels": ["automerge"]
     },
     {
       "description": "Group protobuf packages",
-      "groupName": "connectrpc",
       "matchPackagePrefixes": [
         "@bufbuild/",
         "@connectrpc/",
         "connectrpc.com/",
         "google.golang.org/protobuf"
-      ]
-    },
-
-    // misc
-
-    {
-      "description": "Auto-merge any digest updates",
-      "matchUpdateTypes": ["digest"],
-      "addLabels": ["automerge"]
+      ],
+      "groupName": "connectrpc"
     }
   ]
 }
