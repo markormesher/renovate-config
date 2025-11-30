@@ -5,7 +5,6 @@
   "extends": ["config:best-practices"],
 
   // commit appearance
-  "gitAuthor": "Renovate Bot <renovate@markormesher.co.uk>",
   "semanticCommits": "enabled",
   "semanticCommitType": "chore",
   "semanticCommitScope": "",
