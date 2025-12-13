@@ -168,6 +168,13 @@
         "google.golang.org/protobuf"
       ],
       "groupName": "connectrpc"
+    },
+    {
+      "description": "Slow down high-churn digest updates",
+      "matchPackagePrefixes": [
+        "quay.io/podman/stable"
+      ],
+      "schedule": "* * * * 1" // mondays only
     }
   ]
 }
