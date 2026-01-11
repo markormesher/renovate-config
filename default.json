@@ -53,15 +53,32 @@
     },
 
     // build tooling
+    // note: don't include language images here
+    // note: these rules work in pairs; one to set the commit type for ALL upgrades, one to auto merge SOME upgrades
 
     {
-      "description": "Auto-merge any patch or minor updates to CI tooling",
+      "description": "Set commit type for CI packages",
       "matchFileNames": [
         ".circleci/config.yml",
         ".drone.yml"
       ],
       "matchPackagePrefixes": [
-        // don't include language images here
+        "cimg/base",
+        "docker.io/alpine/git",
+        "docker.io/bufbuild/buf",
+        "docker.io/busybox",
+        "ghcr.io/markormesher/task-fetcher",
+        "quay.io/podman/stable"
+      ],
+      "semanticCommitType": "ci"
+    },
+    {
+      "description": "Auto-merge any patch or minor updates to CI packages",
+      "matchFileNames": [
+        ".circleci/config.yml",
+        ".drone.yml"
+      ],
+      "matchPackagePrefixes": [
         "cimg/base",
         "docker.io/alpine/git",
         "docker.io/bufbuild/buf",
@@ -70,8 +87,18 @@
         "quay.io/podman/stable"
       ],
       "matchUpdateTypes": ["digest", "patch", "minor"],
-      "semanticCommitType": "ci",
       "addLabels": ["automerge"]
+    },
+
+    {
+      "description": "Set commit type for build packages",
+      "matchPackagePrefixes": [
+        "@markormesher/eslint-config",
+        "docker.io/bufbuild/buf",
+        "docker.io/busybox",
+        "eslint"
+      ],
+      "semanticCommitType": "build"
     },
     {
       "description": "Auto-merge any patch or minor updates to build tooling",
@@ -82,14 +109,18 @@
         "eslint"
       ],
       "matchUpdateTypes": ["digest", "patch", "minor"],
-      "semanticCommitType": "build",
       "addLabels": ["automerge"]
+    },
+
+    {
+      "description": "Set commit type for package managers",
+      "matchDepTypes": ["packageManager"],
+      "semanticCommitType": "build"
     },
     {
       "description": "Auto-merge any patch or minor updates to package managers",
       "matchDepTypes": ["packageManager"],
       "matchUpdateTypes": ["digest", "patch", "minor"],
-      "semanticCommitType": "build",
       "addLabels": ["automerge"]
     },
 
@@ -168,13 +199,6 @@
         "google.golang.org/protobuf"
       ],
       "groupName": "connectrpc"
-    },
-    {
-      "description": "Slow down high-churn digest updates",
-      "matchPackagePrefixes": [
-        "quay.io/podman/stable"
-      ],
-      "schedule": "* * * * 1" // mondays only
     }
   ]
 }
