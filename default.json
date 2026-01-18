@@ -44,151 +44,57 @@
 
   "packageRules": [
 
-    // verison pinning
-
+    // set semantic commit types
+    // note: "build" is used for packages used in the build or CI process, which are not expected to change outputs; "ci" is unused.
     {
-      "description": "Auto-merge any pin or digest updates",
-      "matchUpdateTypes": ["pin", "pinDigest", "digest"],
-      "addLabels": ["automerge"]
-    },
-
-    // build tooling
-    // note: don't include language images here
-    // note: these rules work in pairs; one to set the commit type for ALL upgrades, one to auto merge SOME upgrades
-
-    {
-      "description": "Set commit type for CI packages",
+      "description": "Set semantic commit type for build packages",
       "matchFileNames": [
         ".circleci/config.yml",
         ".drone.yml"
       ],
       "matchPackagePrefixes": [
-        "cimg/base",
-        "docker.io/alpine/git",
-        "docker.io/bufbuild/buf",
-        "docker.io/busybox",
-        "ghcr.io/markormesher/task-fetcher",
-        "quay.io/podman/stable"
-      ],
-      "semanticCommitType": "ci"
-    },
-    {
-      "description": "Auto-merge any patch or minor updates to CI packages",
-      "matchFileNames": [
-        ".circleci/config.yml",
-        ".drone.yml"
-      ],
-      "matchPackagePrefixes": [
-        "cimg/base",
-        "docker.io/alpine/git",
-        "docker.io/bufbuild/buf",
-        "docker.io/busybox",
-        "ghcr.io/markormesher/task-fetcher",
-        "quay.io/podman/stable"
-      ],
-      "matchUpdateTypes": ["digest", "patch", "minor"],
-      "addLabels": ["automerge"]
-    },
-
-    {
-      "description": "Set commit type for build packages",
-      "matchPackagePrefixes": [
         "@markormesher/eslint-config",
+        "cimg/",
+        "docker.io/alpine/git",
         "docker.io/bufbuild/buf",
         "docker.io/busybox",
-        "eslint"
+        "eslint",
+        "ghcr.io/markormesher/task-fetcher",
+        "quay.io/podman/stable",
+        "vite"
       ],
       "semanticCommitType": "build"
     },
     {
-      "description": "Auto-merge any patch or minor updates to build tooling",
-      "matchPackagePrefixes": [
-        "@markormesher/eslint-config",
-        "docker.io/bufbuild/buf",
-        "docker.io/busybox",
-        "eslint"
-      ],
-      "matchUpdateTypes": ["digest", "patch", "minor"],
-      "addLabels": ["automerge"]
-    },
-
-    {
-      "description": "Set commit type for package managers",
-      "matchDepTypes": ["packageManager"],
+      "description": "Set semantic commit type for dev dependencies",
+      "matchDepTypes": ["devDependencies"],
       "semanticCommitType": "build"
     },
     {
-      "description": "Auto-merge any patch or minor updates to package managers",
+      "description": "Set semantic commit type for package managers",
       "matchDepTypes": ["packageManager"],
-      "matchUpdateTypes": ["digest", "patch", "minor"],
-      "addLabels": ["automerge"]
+      "semanticCommitType": "build"
     },
 
-    // base layers
-
+    // package grouping
     {
-      "description": "Auto-merge any patch or minor updates to common base images",
-      "matchPackageNames": [
-        "docker.io/debian",
-        "ghcr.io/markormesher/scratch"
-      ],
-      "matchUpdateTypes": ["digest", "patch", "minor"],
-      "addLabels": ["automerge"]
-    },
-
-    // langauges
-
-    {
-      "description": "Group and auto-merge any patch or minor updates to Node",
-      "groupName": "Node language and base images",
-      "matchPackageNames": [
-        "node",
-        "docker.io/node",
-        "cimg/node"
-      ],
-      "matchUpdateTypes": ["digest", "patch", "minor"],
-      "addLabels": ["automerge"]
-    },
-    {
-      "description": "Group and auto-merge any patch or minor updates to Go",
-      "groupName": "Go language and base images",
+      "description": "Group Go packages",
       "matchPackageNames": [
         "go",
         "golang",
         "docker.io/golang",
         "cimg/go"
       ],
-      "matchUpdateTypes": ["digest", "patch", "minor"],
-      "addLabels": ["automerge"]
-    },
-
-    // actual package dependencies
-
-    {
-      "description": "Auto-merge any patch or minor updates to dev dependencies",
-      "matchDepTypes": ["devDependencies"],
-      "matchUpdateTypes": ["digest", "patch", "minor"],
-      "addLabels": ["automerge"]
+      "groupName": "go"
     },
     {
-      "description": "Auto-merge any patch or minor updates to Golang.org packages",
-      "matchPackagePrefixes": [
-        "golang.org/x"
+      "description": "Group Node packages",
+      "matchPackageNames": [
+        "node",
+        "docker.io/node",
+        "cimg/node"
       ],
-      "matchUpdateTypes": ["digest", "patch", "minor"],
-      "addLabels": ["automerge"]
-    },
-    {
-      "description": "Auto-merge any patch updates to well-versioned packages",
-      "matchPackagePrefixes": [
-        "@bufbuild/",
-        "@connectrpc/",
-        "connectrpc.com/",
-        "google.golang.org/protobuf",
-        "material-symbols"
-      ],
-      "matchUpdateTypes": ["digest", "patch"],
-      "addLabels": ["automerge"]
+      "groupName": "node"
     },
     {
       "description": "Group protobuf packages",
@@ -199,6 +105,60 @@
         "google.golang.org/protobuf"
       ],
       "groupName": "connectrpc"
+    },
+
+    // auto-merge rules
+    {
+      "description": "Auto-merge any version pinning",
+      "matchUpdateTypes": ["pin", "pinDigest"],
+      "addLabels": ["automerge"]
+    },
+    {
+      "description": "Auto-merge any patch or minor updates to package managers",
+      "matchDepTypes": ["packageManager"],
+      "matchUpdateTypes": ["digest", "patch", "minor"],
+      "addLabels": ["automerge"]
+    },
+    {
+      "description": "Auto-merge any patch or minor updates to dev dependencies",
+      "matchDepTypes": ["devDependencies"],
+      "matchUpdateTypes": ["digest", "patch", "minor"],
+      "addLabels": ["automerge"]
+    },
+    {
+      "description": "Auto-merge any patch or minor updates to well-versioned packages",
+      "matchPackagePrefixes": [
+        // build tools
+        "@markormesher/eslint-config",
+        "cimg/",
+        "docker.io/alpine/git",
+        "docker.io/bufbuild/buf",
+        "docker.io/busybox",
+        "eslint",
+        "ghcr.io/markormesher/task-fetcher",
+        "quay.io/podman/stable",
+        "vite",
+
+        // languages
+        "go",
+        "node",
+
+        // base layers
+        "ghcr.io/markormesher/scratch",
+        "docker.io/debian",
+        "docker.io/golang",
+        "docker.io/node",
+
+        // dependencies
+        "@bufbuild/",
+        "@connectrpc/",
+        "connectrpc.com/",
+        "golang.org/x",
+        "google.golang.org/protobuf",
+        "material-symbols"
+      ],
+      "matchUpdateTypes": ["digest", "patch", "minor"],
+      "addLabels": ["automerge"]
     }
   ]
 }
