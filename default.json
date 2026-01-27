@@ -106,6 +106,14 @@
       ],
       "groupName": "connectrpc"
     },
+    {
+      "description": "Group Gateway charts",
+      "matchPackagePrefixes": [
+        "gateway-crds-helm",
+        "gateway-helm"
+      ],
+      "groupName": "gateway-helm"
+    },
 
     // auto-merge rules
     {
