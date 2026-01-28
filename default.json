@@ -109,8 +109,8 @@
     {
       "description": "Group Gateway charts",
       "matchPackagePrefixes": [
-        "gateway-crds-helm",
-        "gateway-helm"
+        "envoyproxy/gateway-crds-helm",
+        "envoyproxy/gateway-helm"
       ],
       "groupName": "gateway-helm"
     },
