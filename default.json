@@ -122,6 +122,11 @@
       "addLabels": ["automerge"]
     },
     {
+      "description": "Auto-merge lockfile maintenance",
+      "matchUpdateTypes": ["lockFileMaintenance"],
+      "addLabels": ["automerge"]
+    },
+    {
       "description": "Auto-merge any patch or minor updates to package managers",
       "matchDepTypes": ["packageManager"],
       "matchUpdateTypes": ["digest", "patch", "minor"],
