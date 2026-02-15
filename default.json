@@ -149,6 +149,7 @@
         "docker.io/busybox",
         "eslint",
         "ghcr.io/markormesher/task-fetcher",
+        "honnef.co/go/tools",
         "quay.io/podman/stable",
         "vite",
 
