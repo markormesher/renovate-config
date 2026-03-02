@@ -60,6 +60,7 @@
         "docker.io/busybox",
         "eslint",
         "ghcr.io/markormesher/task-fetcher",
+        "github.com/kisielk/errcheck",
         "quay.io/podman/stable",
         "vite"
       ],
@@ -149,6 +150,7 @@
         "docker.io/busybox",
         "eslint",
         "ghcr.io/markormesher/task-fetcher",
+        "github.com/kisielk/errcheck",
         "honnef.co/go/tools",
         "quay.io/podman/stable",
         "vite",
