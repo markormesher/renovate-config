@@ -36,6 +36,15 @@
   // tidy lockfiles after making changes
   "postUpdateOptions": ["yarnDedupeHighest", "gomodTidy"],
 
+  // be gentle with external APIs
+  "hostRules": [
+    {
+      "matchHost": "api.github.com",
+      "maxRequestsPerSecond": 1,
+      "concurrentRequestLimit": 1
+    }
+  ],
+
   "kubernetes": {
     "fileMatch": [
       ".*\.ya?ml$"
