@@ -181,6 +181,7 @@
         "docker.io/debian",
         "docker.io/golang",
         "docker.io/node",
+        "docker.io/python",
 
         // dependencies
         "@bufbuild/",
