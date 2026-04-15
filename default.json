@@ -53,6 +53,14 @@
 
   "packageRules": [
 
+    // version pinning
+    {
+      // see https://github.com/markormesher/eslint-config/issues/187
+      "description": "Pin eslint to 9.x",
+      "matchPackageNames": ["eslint"],
+      "allowedVersions": ">=9.0.0 <10.0.0"
+    },
+
     // set semantic commit types
     // note: "build" is used for packages used in the build or CI process, which are not expected to change outputs; "ci" is unused.
     {
