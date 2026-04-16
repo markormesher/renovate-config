@@ -57,7 +57,10 @@
     {
       // see https://github.com/markormesher/eslint-config/issues/187
       "description": "Pin eslint to 9.x",
-      "matchPackageNames": ["eslint"],
+      "matchPackageNames": [
+        "eslint",
+        "@eslint/*"
+      ],
       "allowedVersions": ">=9.0.0 <10.0.0"
     },
 
