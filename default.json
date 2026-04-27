@@ -16,10 +16,7 @@
     "Type",
     "Update",
     "Change",
-    "Age",
-    "Adoption",
-    "Passing",
-    "Confidence"
+    "Age"
   ],
 
   // renovate behaviour
@@ -27,6 +24,7 @@
   "pruneStaleBranches": true,
   "osvVulnerabilityAlerts": true,
   "pinDigests": true,
+  "minimumReleaseAge": "2 days",
 
   // no limits
   "prHourlyLimit": 0,
