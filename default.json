@@ -25,6 +25,7 @@
   "osvVulnerabilityAlerts": true,
   "pinDigests": true,
   "minimumReleaseAge": "2 days",
+  "minimumReleaseAgeBehaviour": "timestamp-optional",
   "internalChecksFilter": "strict",
   "prCreation": "not-pending",
 
