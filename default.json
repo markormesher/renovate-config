@@ -9,16 +9,6 @@
   "semanticCommitType": "chore",
   "semanticCommitScope": "",
 
-  // pr appearance
-  "labels": ["🤖 renovate"],
-  "prBodyColumns": [
-    "Package",
-    "Type",
-    "Update",
-    "Change",
-    "Age"
-  ],
-
   // renovate behaviour
   "recreateWhen": "always",
   "pruneStaleBranches": true,
@@ -51,6 +41,45 @@
   },
 
   "packageRules": [
+
+    // fix appearances
+    {
+      "description": "Fix PR appearances",
+      "matchPackageNames": ["*"],
+      "labels": ["🤖 renovate"],
+      "prBodyColumns": [
+        "Package",
+        "Type",
+        "Update",
+        "Change"
+      ]
+    },
+
+    // dependency update delays
+    {
+      "description": "1-day delay for dependency packages",
+      "matchDatasources": [
+        "go",
+        "npm"
+      ],
+      "minimumReleaseAge": "1 day"
+    },
+    {
+      "description": "No delay for unsupported updates",
+      "matchDatasources": [
+        "go",
+        "npm"
+      ],
+      "matchUpdateTypes": [
+        "lockFileMaintenance",
+        "replacement",
+        "pin"
+      ],
+      "minimumReleaseAge": null,
+      "prBodyNotes": [
+        "⚠️ Minimum release age has not been checked for this update."
+      ]
+    },
 
     // version pinning
     {
