@@ -151,9 +151,10 @@
         "@bufbuild/",
         "@connectrpc/",
         "connectrpc.com/",
+        "docker.io/bufbuild/",
         "google.golang.org/protobuf"
       ],
-      "groupName": "connectrpc"
+      "groupName": "protobuf"
     },
     {
       "description": "Group Gateway charts",
@@ -217,6 +218,7 @@
         // dependencies
         "@bufbuild/",
         "@connectrpc/",
+        "docker.io/bufbuild/buf",
         "connectrpc.com/",
         "golang.org/x",
         "google.golang.org/protobuf",
