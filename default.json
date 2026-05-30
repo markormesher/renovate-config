@@ -124,6 +124,11 @@
       "matchDepTypes": ["packageManager"],
       "semanticCommitType": "build"
     },
+    {
+      "description": "Set semantic commit type for CI actions",
+      "matchDepTypes": ["action"],
+      "semanticCommitType": "build"
+    },
 
     // package grouping
     {
