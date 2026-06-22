@@ -96,10 +96,6 @@
     // note: "build" is used for packages used in the build or CI process, which are not expected to change outputs; "ci" is unused.
     {
       "description": "Set semantic commit type for build packages",
-      "matchFileNames": [
-        ".circleci/config.yml",
-        ".drone.yml"
-      ],
       "matchPackagePrefixes": [
         "@markormesher/eslint-config",
         "cimg/",
@@ -205,8 +201,8 @@
         "eslint",
         "ghcr.io/markormesher/task-fetcher",
         "github.com/kisielk/errcheck",
-        "https://github.com/mormesher/ci-resources",
         "honnef.co/go/tools",
+        "markormesher/ci-resources",
         "quay.io/podman/stable",
         "vite",
 
@@ -216,6 +212,7 @@
 
         // base layers
         "ghcr.io/markormesher/scratch",
+        "ghcr.io/markormesher/toolbox",
         "docker.io/debian",
         "docker.io/golang",
         "docker.io/node",
