@@ -224,6 +224,7 @@
         "docker.io/bufbuild/buf",
         "connectrpc.com/",
         "golang.org/x",
+        "google.golang.org/grpc",
         "google.golang.org/protobuf",
         "material-symbols"
       ],
