@@ -194,12 +194,12 @@
       "matchPackagePrefixes": [
         // build tools
         "@markormesher/eslint-config",
-        "cimg/",
         "docker.io/alpine/git",
         "docker.io/bufbuild/buf",
         "docker.io/busybox",
         "eslint",
         "ghcr.io/markormesher/task-fetcher",
+        "ghcr.io/markormesher/yamllint",
         "github.com/kisielk/errcheck",
         "honnef.co/go/tools",
         "markormesher/ci-resources",
