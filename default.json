@@ -226,7 +226,8 @@
         "golang.org/x",
         "google.golang.org/grpc",
         "google.golang.org/protobuf",
-        "material-symbols"
+        "material-symbols",
+        "react"
       ],
       "matchUpdateTypes": ["digest", "patch", "minor"],
       "addLabels": ["automerge"]
