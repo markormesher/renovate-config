@@ -23,7 +23,11 @@
   "branchConcurrentLimit": 0,
 
   // tidy lockfiles after making changes
-  "postUpdateOptions": ["yarnDedupeHighest", "gomodTidy"],
+  "postUpdateOptions": [
+    "yarnDedupeHighest",
+    "gomodTidy",
+    "gomodUpdateImportPaths"
+  ],
 
   // be gentle with external APIs
   "hostRules": [
@@ -215,6 +219,7 @@
         "ghcr.io/markormesher/toolbox",
         "docker.io/debian",
         "docker.io/golang",
+        "docker.io/joseluisq/static-web-server",
         "docker.io/node",
         "docker.io/python",
 
